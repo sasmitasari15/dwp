@@ -1,0 +1,26 @@
+<form method="POST" action="">
+    Nama <input type="text" id="txtnama">
+    <br>
+    Nama Pacar <input type="text" id="txtpacar">
+    <br>
+    <input type="submit" name="Proses">
+    <br>
+    <button onclick="myFuction()">Click me</button>
+</form>
+
+<script>
+    var nama = "yohannes setiawan";
+    var pacar = "kamu".toUpperCase();
+    document.getElementById("txtnama").value = nama;
+    document.getElementById("txtpacar").value= pacar;
+    alert(nama + " pacarnya " + pacar);
+    console.log(nama);
+</script>
+
+<script>
+    function myfunction() {
+        var nama = document.getElementById("txtnama").value;
+        var pacar = document.getElementById("txtpacar").value.toUpperCase();
+        alert(nama + "pacarnya" + pacar);
+    }
+</script>

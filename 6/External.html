@@ -1,0 +1,18 @@
+<form method="POST" action="">
+    Nama <input type="text" id="txtnama">
+    <br>
+    Nama Pacar <input type="text" id="txtpacar">
+    <br>
+    <input type="submit" name="Proses">
+</form>
+<br>
+
+<script src="filejs.js"></script>
+<script>
+    function myfunction() {
+        var nama = document.getElementById("txtnama").value;
+        var pacar = document.getElementById("txtpacar").value.toUpperCase();
+        alert(nama + "pacarnya" + pacar);
+    }
+</script>
+

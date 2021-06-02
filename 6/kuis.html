@@ -1,0 +1,174 @@
+
+	<form>
+		<fieldset>
+			<legend>Data Pribadi</legend>
+			<table>
+			<tr>
+				<td>Nama</td>
+				<td>:</td>
+				<td><input type="text" name="txtnama" id="txtnama" placeholder="Masukkan nama Anda" onkeypress="return harushuruf(event)"><span id="lblErrornama" style="color: red;">*Hanya huruf</span></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td>:</td>
+				<td><input type="text" id="txtemail" placeholder="Masukkan email Anda" onkeyup="validateEmail();"><span id="lblError" style="color: red;">*Format email yang benar</span></td>	
+			</tr>
+			
+			<tr>
+				<td>Password</td>
+				<td>:</td>
+				<td><input type="Password" name="txtpassword" id="txtpassword" onkeyup ="validatePassword();"><span id="lblErrorpass" style="color: red;">*Maksimal 8 Karakter</span></td>	
+			</tr>
+
+			<tr>
+				<td>Konfirmasi Password</td>
+				<td>:</td>
+				<td><input type="Password" name="ulangpassword" id="ulangpassword" onkeyup="validateulangpass();"></td>
+			</tr>
+			<tr>
+				<td>Handphone</td>
+				<td>:</td>
+				<td><input type="text" name="txthp" id="txthp" onkeypress="return hanyaAngka(event)"><span id="lblerrorhp" style="color: red;">*Hanya Angka</span></td>
+			</tr>
+			<tr>
+				<td>Jenis Kelamin</td>
+				<td>:</td>
+				<td>
+				<input type="radio" name="gender" id="laki" value="laki" onclick="return radiovalidasi();">Laki-Laki
+				<input type="radio" name="gender" id="perempuan" value="Perempuan" onsubmit="return radiovalidasi();">Perempuan<br>
+				<span id="lblerrorgender" style="color: red;"></span> 
+				</td>
+				
+			</tr>
+			<tr>
+				<td>Hobi</td>
+				<td>:</td>
+				<td>
+				<input type="checkbox" name="txthobi" value="membaca" onclick="return hobivalidasi();">Membaca Buku
+				<input type="checkbox" name="txthobi" value="menulis" onclick="return hobivalidasi();">Menulis
+				<input type="checkbox" name="txthobi" value="memancing" onclick="return hobivalidasi();">Memancing <br>
+				<span id="lblerrorhobi" style="color: red;"></span> 
+				</td>
+			</tr>
+			<tr>
+				<td>Asal Kota</td>
+				<td>:</td>
+				<td>
+				    <select name="Txtasalkota">
+				        <option value="">--Pilih--</option>
+				        <option>Bangka</option>
+				        <option>Bangka Tengah</option>
+				        <option>Bangka Barat</option>
+				        <option>Bangka Selatan</option>
+				        <option>Pangkalpinang</option>
+				    </select><br>
+				</td>
+			</tr>
+			<tr>
+				<td>Komentar Anda</td>
+				<td>:</td>
+				<td>
+				<textarea name="txtkomentar" rows="5" cols="35">silahkan katakan isi hati anda</textarea> <br>
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="return radiovalidasi(); hobivalidasi()">Kirim</button></td>
+			</tr>
+			</table>
+		</fieldset>	
+	</form>
+
+<script type="text/javascript">
+ function harushuruf(evt){
+ 	var lblError = document.getElementById("lblErrornama")
+ 	lblError.innerHTML = "";
+ var charCode = (evt.which) ? evt.which : event.keyCode
+ if ((charCode < 65 || charCode > 90 )&&(charCode < 97 || charCode > 122 )&&charCode>32) {
+ 	lblError.innerHTML = "*Hanya huruf";
+ 	return false;
+ 	}
+return true;
+}
+
+function ValidateEmail() {
+        var email = document.getElementById("txtemail").value;
+        var lblError = document.getElementById("lblError");
+        lblError.innerHTML = "";
+        var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        if (!expr.test(email)) {
+        	lblError.innerHTML = "*Format email yang benar";
+        }
+        //return true;
+    }
+
+function validatePassword() {
+        var password = document.getElementById("txtpassword").value;
+        var n = password.length;
+        var lblError = document.getElementById("lblErrorpass");
+        lblError.innerHTML = "";
+        if (n > 8) {
+            lblError.innerHTML = "*Maksimal 8 karakter";
+        }
+        //return true;
+        //12345678
+    }
+window.onload = function () {
+                document.getElementById("txtpassword").onchange = validatePassword;
+                document.getElementById("ulangpassword").onchange = validatePassword;
+            }
+            function validateulangpass(){
+                var pass2=document.getElementById("ulangpassword").value;
+                var pass1=document.getElementById("txtpassword").value;
+                if(pass1!=pass2)
+                    document.getElementById("ulangpassword").setCustomValidity("Password Tidak Sesuai");
+                else
+                    document.getElementById("ulangpassword").setCustomValidity('');
+            }
+function hanyaAngka(evt) {
+		  var charCode = (evt.which) ? evt.which : event.keyCode
+		   if (charCode > 31 && (charCode < 48 || charCode > 57))
+ 
+		    return false;
+		  return true;
+	}
+
+
+function radiovalidasi(){
+
+        var gender = document.getElementsByName('gender');
+        var genValue = false;
+        var lblError = document.getElementById("lblerrorgender");
+        lblError.innerHTML = "";
+        for(var i=0; i<gender.length;i++){
+            if(gender[i].checked == true){
+                genValue = true;    
+            }
+        }
+        if(!genValue){
+            lblError.innerHTML = "*Pilih Jenis Kelamin";
+            return false;
+        }
+
+    }
+
+
+function hobivalidasi(){
+	
+        var Hobby = document.getElementsByName('txthobi');
+        var haschecked = false;
+        var lblError = document.getElementById("lblerrorhobi");
+        lblError.innerHTML = "";
+        for(var i=0; i<Hobby.length;i++){
+            if(Hobby[i].checked == true){
+                haschecked = true;    
+            }
+        }
+        if(!haschecked){
+            lblError.innerHTML = "*Pilih Satu";
+            return false;
+    	}
+    }
+
+</script>
