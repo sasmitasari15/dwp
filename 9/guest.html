@@ -1,0 +1,94 @@
+<table align="center" cellspacing="0" cellpadding="0">
+	<tr>
+		<td colspan="2" height="183px" background="images/Index_01.png"><h1 align="center" style="color:#01458e">STMIK ATMA LUHUR</h1><h3 align="center" style="color: #01458e;">Kampus Kompetensi</h3></td>
+	</tr>
+	<tr>
+		<td width="195px" valign="top">
+			<u><strong>Menu :</strong></u>
+			<a href="index.html"><img src="images/tombol1_09.png" onmouseover="this.src='images/tombol1_06.png'" onmouseout="this.src='images/tombol1_09.png'"></a><br><br><br>
+			<a href="about.html"><img src="images/tombol2_09.png" onmouseover="this.src='images/tombol2_06.png'" onmouseout="this.src='images/tombol2_09.png'"></a><br><br><br>
+			<a href="gallery.html"><img src="images/tombol3_09.png" onmouseover="this.src='images/tombol3_06.png'" onmouseout="this.src='images/tombol3_09.png'"></a><br><br><br>
+			<a href="guest.html"><img src="images/tombol4_09.png" onmouseover="this.src='images/tombol4_06.png'" onmouseout="this.src='images/tombol4_09.png'"></a><br><br><br>
+		</td>
+		<td align="center" background="images/Index_04.png" width="905px" valign="top">
+			<h2 align="center">Guest Book</h2>
+		
+	<form>
+		<fieldset>
+			<table>
+
+			<tr>
+				<td>Email</td>
+				<td>:</td>
+				<td><input size="30px" type="text" name="txtemail107" id="txtemail107" placeholder="Isi email Anda" onkeyup="ValidateEmail();"><span id="lblError" style="color: red;">*Format email yang benar</span></td>	
+			</tr>
+			
+			<tr>
+				<td>Nama Lengkap</td>
+				<td>:</td>
+				<td><input size="30px" type="text" name="txtnama107" id="txtnama107" placeholder="Isi Nama Lengkap Anda" onkeyup="OtomatisKapital()"><span style="color: red;">*Huruf Kapital Otomatis</span></td>
+			</tr>
+			
+			<tr>
+				<td>No HP</td>
+				<td>:</td>
+				<td><input type="text" name="txthp107" id="txthp107" onkeypress="return AngkaSaja(event)" placeholder="Isi Nomor HP"><span id="lblerrorhp" style="color: red;">*Hanya Angka</span></td>
+			</tr>
+			
+			<tr>
+				<td>Website</td>
+				<td>:</td>
+				<td><input size="30px" type="text" name="txtwebsite107" id="txtwebsite107" placeholder="Isi Website Anda"></td>
+			</tr>
+			
+			<tr>
+				<td>Komentar Anda</td>
+				<td>:</td>
+				<td>
+				<textarea name="txtkomentar" rows="5" cols="50"></textarea> <br>
+				</td>
+			</tr>
+			
+			<tr>
+				<td><button type="submit">Simpan</button>&nbsp;<button type="reset">Batal</button></td>
+			</tr>
+			</table>
+		</fieldset>	
+	</form>
+
+<script type="text/javascript">
+
+function ValidateEmail() {
+        var email = document.getElementById("txtemail107").value;
+        var lblError = document.getElementById("lblError");
+        lblError.innerHTML = "";
+        var expr = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        if (!expr.test(email)) {
+        	lblError.innerHTML = "*Format email yang benar";
+        }
+        //return true;
+    }
+
+ function OtomatisKapital() {
+ 	var x = document.getElementById("txtnama107");
+    x.value = x.value.toUpperCase();
+}
+
+
+function AngkaSaja(evt) {
+		  var charCode = (evt.which) ? evt.which : event.keyCode
+		   if (charCode > 31 && (charCode < 48 || charCode > 57))
+ 
+		    return false;
+		  return true;
+	}
+
+</script>
+
+
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" height="30px" background="images/Index_10.png" align="center" style="color:#01458e">2020 &copy; Sasmita Sari</td>
+	</tr>
+</table>
